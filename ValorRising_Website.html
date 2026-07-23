@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valor Rising — Veteran Transitional Housing | Jacksonville, FL</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0E7C7B;
+    --teal-dark: #085E5D;
+    --teal-light: #E8F5F5;
+    --gold: #C9A84C;
+    --gold-light: #F5E9C8;
+    --dark: #1A1A1A;
+    --gray: #555555;
+    --light: #F8F8F6;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(14, 124, 123, 0.97);
+    backdrop-filter: blur(8px);
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-brand span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--teal-dark);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(8,94,93,0.95) 0%, rgba(14,124,123,0.85) 50%, rgba(26,26,26,0.95) 100%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 60px,
+        rgba(201,168,76,0.04) 60px,
+        rgba(201,168,76,0.04) 61px
+      );
+  }
+
+  .hero-accent {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 140px 48px 80px;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .hero-title .accent { color: var(--gold); }
+
+  .hero-tagline {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 40px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .hero-mission {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 16px 36px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 15px 36px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 60px;
+    right: 48px;
+    display: flex;
+    gap: 48px;
+    z-index: 2;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* MISSION STRIP */
+  .mission-strip {
+    background: var(--gold);
+    padding: 28px 48px;
+    text-align: center;
+  }
+
+  .mission-strip p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(14px, 2vw, 18px);
+    font-style: italic;
+    color: var(--dark);
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 120px 48px;
+    background: var(--white);
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .about-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .about-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .about-title .accent { color: var(--teal); }
+
+  .about-body {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.9;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--teal);
+    padding: 48px 40px;
+    position: relative;
+  }
+
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: 12px;
+    bottom: 12px;
+    border: 2px solid var(--gold);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .about-card-content { position: relative; z-index: 1; }
+
+  .about-card-quote {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .about-card-author {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* VALUES */
+  .values {
+    background: var(--light);
+    padding: 120px 48px;
+  }
+
+  .values-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+
+  .section-title .accent { color: var(--teal); }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--teal-light);
+  }
+
+  .value-card {
+    background: var(--white);
+    padding: 48px 36px;
+    position: relative;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(14,124,123,0.12);
+    z-index: 1;
+  }
+
+  .value-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--teal-light);
+    line-height: 1;
+    margin-bottom: -8px;
+  }
+
+  .value-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .value-phrase {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .value-body {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .value-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--teal);
+  }
+
+  /* WHAT WE OFFER */
+  .offer {
+    padding: 120px 48px;
+    background: var(--teal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .offer::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .offer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .offer .section-eyebrow { color: var(--gold); }
+  .offer .section-title { color: var(--white); }
+  .offer .section-title .accent { color: var(--gold); }
+
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .offer-item {
+    background: rgba(255,255,255,0.06);
+    padding: 36px 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: background 0.2s;
+  }
+
+  .offer-item:hover { background: rgba(255,255,255,0.1); }
+
+  .offer-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(201,168,76,0.2);
+    border: 1px solid rgba(201,168,76,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .offer-item-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .offer-item-body {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* WHO WE SERVE */
+  .serve {
+    padding: 120px 48px;
+    background: var(--white);
+  }
+
+  .serve-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .serve-list {
+    list-style: none;
+    margin-top: 32px;
+  }
+
+  .serve-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--teal-light);
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .serve-list li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .for-partners {
+    background: var(--light);
+    padding: 48px 40px;
+    border-left: 4px solid var(--gold);
+    margin-top: 32px;
+  }
+
+  .for-partners-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  .for-partners-body {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  .partner-benefits {
+    list-style: none;
+  }
+
+  .partner-benefits li {
+    font-size: 13px;
+    color: var(--gray);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(14,124,123,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+  }
+
+  .partner-benefits li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 120px 48px;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 80px,
+      rgba(14,124,123,0.05) 80px,
+      rgba(14,124,123,0.05) 81px
+    );
+  }
+
+  .contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .contact .section-eyebrow { color: var(--gold); }
+
+  .contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .contact-title .accent { color: var(--gold); }
+
+  .contact-body {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.9;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .contact-item-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(14,124,123,0.3);
+    border: 1px solid rgba(14,124,123,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .contact-item-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .contact-item-value {
+    font-size: 15px;
+    color: var(--white);
+    font-weight: 300;
+  }
+
+  .contact-form-area {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 48px 40px;
+  }
+
+  .contact-form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 32px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    padding: 14px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group select option { background: var(--dark); }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--teal-dark);
+    border-top: 2px solid var(--gold);
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-tagline {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+
+  .footer-crisis {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  .footer-crisis strong {
+    color: var(--gold);
+    font-size: 13px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-title { animation: fadeUp 0.6s ease 0.4s both; }
+  .hero-tagline { animation: fadeUp 0.6s ease 0.6s both; }
+  .hero-mission { animation: fadeUp 0.6s ease 0.7s both; }
+  .hero-ctas { animation: fadeUp 0.6s ease 0.8s both; }
+  .hero-stats { animation: fadeUp 0.6s ease 1s both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 120px 24px 100px; }
+    .hero-stats { display: none; }
+    .about, .serve-inner, .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .offer-grid { grid-template-columns: 1fr; }
+    .about, .values, .offer, .serve, .contact { padding: 80px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+    .footer-copy { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Valor <span>Rising</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#values">Our Values</a></li>
+    <li><a href="#offer">What We Offer</a></li>
+    <li><a href="#serve">Who We Serve</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Veteran Transitional Housing — Jacksonville, Florida</div>
+    <h1 class="hero-title">
+      Valor<br><span class="accent">Rising</span>
+    </h1>
+    <p class="hero-tagline">"Your Mission Isn't Over — It's Just Beginning Again"</p>
+    <p class="hero-mission">We provide safe, dignified, structured transitional housing for Veterans experiencing homelessness — serving as a bridge to permanent, independent living. HUD-VASH vouchers accepted.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Refer a Veteran</a>
+      <a href="#serve" class="btn-outline">Partner With Us</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-number">3rd</span>
+      <span class="stat-label">Largest Veteran<br>Population State</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">HUD</span>
+      <span class="stat-label">VASH<br>Accepted</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">JAX</span>
+      <span class="stat-label">Jacksonville<br>Florida</span>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION STRIP -->
+<div class="mission-strip">
+  <p>"At Valor Rising, we believe no Veteran should fight homelessness after fighting for our country. We restore dignity, provide resources, and walk alongside our heroes as they build the future they earned."</p>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <div class="about-label">Who We Are</div>
+    <h2 class="about-title">A Bridge Back to <span class="accent">Stability</span></h2>
+    <p class="about-body">Valor Rising LLC is a professional Veteran transitional housing operator based in Jacksonville, Florida. We provide safe, structured, and dignified short-term housing for Veterans experiencing homelessness — serving as a reliable bridge to permanent, independent living.</p>
+    <p class="about-body">We are a mission-driven organization committed to honoring the service of every Veteran who walks through our doors. Every decision we make is guided by dignity, accountability, and hope.</p>
+    <p class="about-body">Founded by a registered nurse with over 20 years of clinical experience serving Jacksonville communities across multiple sectors of healthcare — Valor Rising brings professional care and compassionate leadership to every aspect of operations.</p>
+  </div>
+  <div class="about-visual">
+    <div class="about-card">
+      <div class="about-card-content">
+        <p class="about-card-quote">"We believe homelessness is not a destination — it is a detour. Every Veteran who comes through Valor Rising carries within them the strength, discipline, and courage that no circumstance can erase. Our role is to create the conditions where that strength can rise again."</p>
+        <div class="about-card-author">— Valor Rising, Core Mission</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values" id="values">
+  <div class="values-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">What We Stand For</div>
+      <h2 class="section-title">Our Core <span class="accent">Values</span></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-bar"></div>
+        <div class="value-number">01</div>
+        <div class="value-title">Dignity & Respect</div>
+        <div class="value-phrase">"Every Veteran walks through our doors as a hero — not a statistic."</div>
+        <p class="value-body">We believe every person who served this country deserves unconditional respect regardless of their current circumstances. At Valor Rising, dignity is not earned — it is given.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-bar"></div>
+        <div class="value-number">02</div>
+        <div class="value-title">Accountability & Integrity</div>
+        <div class="value-phrase">"We do what we say — every time, for every Veteran."</div>
+        <p class="value-body">Valor Rising holds itself to the highest standard of honesty, transparency, and follow through. We are accountable to our residents, our partners, our funders, and our community.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-bar"></div>
+        <div class="value-number">03</div>
+        <div class="value-title">Hope & Restoration</div>
+        <div class="value-phrase">"Your mission isn't over — it's just beginning again."</div>
+        <p class="value-body">We don't just house Veterans — we restore futures. Our role is to create the conditions where every Veteran's strength, discipline, and courage can rise again.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="offer" id="offer">
+  <div class="offer-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Our Program</div>
+      <h2 class="section-title">What We <span class="accent">Offer</span></h2>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-item">
+        <div class="offer-icon">🏠</div>
+        <div>
+          <div class="offer-item-title">Safe, Furnished Housing</div>
+          <p class="offer-item-body">Clean, fully furnished rooms in stable Jacksonville neighborhoods. Move-in ready and maintained to HUD Housing Quality Standards.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">📋</div>
+        <div>
+          <div class="offer-item-title">HUD-VASH Vouchers Accepted</div>
+          <p class="offer-item-body">We work directly with the Jacksonville Housing Authority and VA HUD-VASH coordinators for seamless placement and payment.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">🎯</div>
+        <div>
+          <div class="offer-item-title">Structured Program Environment</div>
+          <p class="offer-item-body">Clear house rules, quiet hours, substance-free environment, and a weekly check-in process designed to support stability and forward progress.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">🗺️</div>
+        <div>
+          <div class="offer-item-title">Housing Stability Planning</div>
+          <p class="offer-item-body">Every resident works toward a personal Housing Stability Plan — covering housing, employment, benefits, health, and life skills goals.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">🤝</div>
+        <div>
+          <div class="offer-item-title">VA Resource Coordination</div>
+          <p class="offer-item-body">We connect residents to VA services, community programs, employment resources, and supportive services — working alongside their VA case managers.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">💪</div>
+        <div>
+          <div class="offer-item-title">Professional House Management</div>
+          <p class="offer-item-body">Compassionate, professional house management available to residents. We treat every Veteran with the dignity and respect their service deserves.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="serve" id="serve">
+  <div class="serve-inner">
+    <div>
+      <div class="about-label">Veterans</div>
+      <h2 class="about-title">Who We <span class="accent">Serve</span></h2>
+      <ul class="serve-list">
+        <li>Veterans experiencing homelessness in the Jacksonville area</li>
+        <li>Veterans transitioning from VA medical care or treatment programs</li>
+        <li>Veterans referred by VA HUD-VASH coordinators and social workers</li>
+        <li>Veterans referred by VSOs — VFW, American Legion, DAV, and others</li>
+        <li>Veterans who are ready to stabilize their lives and move forward</li>
+      </ul>
+      <br>
+      <p class="about-body">To refer a Veteran or discuss placement availability, contact us directly. We respond promptly and treat every referral with urgency and care.</p>
+      <br>
+      <a href="#contact" class="btn-primary" style="margin-top:8px;">Refer a Veteran Today</a>
+    </div>
+    <div>
+      <div class="for-partners">
+        <div class="for-partners-title">For Property Owners</div>
+        <p class="for-partners-body">Valor Rising LLC signs the master lease — we are fully responsible for the property and all residents. We are actively seeking property partnerships in Jacksonville.</p>
+        <ul class="partner-benefits">
+          <li>Valor Rising signs the master lease — full responsibility</li>
+          <li>Consistent, on-time monthly payments</li>
+          <li>Professional operator — not individual tenants</li>
+          <li>HUD-VASH backed payment reliability</li>
+          <li>Prompt communication and property care</li>
+          <li>Long-term, stable leasing relationship</li>
+          <li>Community impact — housing those who served</li>
+        </ul>
+        <br>
+        <a href="#contact" class="btn-primary" style="font-size:10px;">Discuss a Property Partnership</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="contact-title">Let's Work <span class="accent">Together</span></h2>
+      <p class="contact-body">Whether you're a VA coordinator with a Veteran who needs housing, a property owner interested in partnership, or a Veteran seeking a fresh start — we want to hear from you.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-value">Jacksonville, Florida</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <div class="contact-item-label">Phone</div>
+            <div class="contact-item-value">Coming Soon</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">info@valorrising.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🌐</div>
+          <div>
+            <div class="contact-item-label">Website</div>
+            <div class="contact-item-value">valorrising.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-area">
+      <div class="contact-form-title">Send Us a Message</div>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Full name">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>I Am A...</label>
+        <select>
+          <option value="">Select one</option>
+          <option>VA Coordinator / Social Worker</option>
+          <option>Property Owner / Landlord</option>
+          <option>Veteran Seeking Housing</option>
+          <option>VSO Representative</option>
+          <option>Potential Donor / Supporter</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="How can we help?"></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%; text-align:center; padding:18px;">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Valor <span>Rising</span></div>
+    <div class="footer-tagline">"Your Mission Isn't Over — It's Just Beginning Again"</div>
+  </div>
+  <div class="footer-crisis">
+    <strong>Veterans Crisis Line</strong><br>
+    Call 988, then Press 1<br>
+    Text 838255 | chat at VeteransCrisisLine.net
+  </div>
+  <div class="footer-copy">
+    © 2026 Valor Rising LLC<br>
+    Jacksonville, Florida<br>
+    Proudly Serving Those Who Served Us
+  </div>
+</footer>
+
+</body>
+</html>
